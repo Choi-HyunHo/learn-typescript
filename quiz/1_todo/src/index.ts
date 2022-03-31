@@ -1,11 +1,10 @@
 // any 타입 : string, number, array 등 모든 타입을 통틀어서 본다.
-// void : 반환값이 없다.
+// void : 반환값이 없다.(리턴값들이 없는 경우)
 
-let todoItems;
-
+let todoItems: object[]; // object로 이루어진 배열이다.
 
 // api
-function fetchTodoItems() {
+function fetchTodoItems(): object[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -15,30 +14,30 @@ function fetchTodoItems() {
 }
 
 // crud methods
-function fetchTodos() {
+function fetchTodos(): object[] {
   const todos = fetchTodoItems();
   return todos;
 }
 
-function addTodo(todo) {
+function addTodo(todo: object): void {
   todoItems.push(todo);
 }
 
-function deleteTodo(index) {
+function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index, todo) {
+function completeTodo(index: number, todo: object): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
 
 // business logic
-function logFirstTodo() {
+function logFirstTodo(): object {
   return todoItems[0];
 }
 
-function showCompleted() {
+function showCompleted(): object[] {
   return todoItems.filter(item => item.done);
 }
 
@@ -48,7 +47,7 @@ function addTwoTodoItems() {
 }
 
 // NOTE: 유틸 함수
-function log() {
+function log(): void {
   console.log(todoItems);
 }
 
